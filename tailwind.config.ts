@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -12,8 +13,17 @@ export default {
 	theme: {
 		container: {
 			center: true,
-			padding: '2rem',
+			padding: {
+				DEFAULT: '1rem',
+				sm: '2rem',
+				lg: '4rem',
+				xl: '5rem',
+			},
 			screens: {
+				'sm': '640px',
+				'md': '768px',
+				'lg': '1024px',
+				'xl': '1280px',
 				'2xl': '1400px'
 			}
 		},
@@ -24,6 +34,33 @@ export default {
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
+				brand: {
+					blue: '#1D4ED8',
+					dark: '#1D2B4C',
+					light: '#EEF1F8',
+					50: '#F0F4FF',
+					100: '#E1E9FE',
+					200: '#C3D4FD',
+					300: '#A4BFFC',
+					400: '#86AAFC',
+					500: '#6895FB',
+					600: '#3466F6',
+					700: '#1D4ED8',
+					800: '#1E40AF',
+					900: '#1E3A8A',
+				},
+				neutral: {
+					50: '#F9FAFB',
+					100: '#F3F4F6',
+					200: '#E5E7EB',
+					300: '#D1D5DB',
+					400: '#9CA3AF',
+					500: '#6B7280',
+					600: '#4B5563',
+					700: '#374151',
+					800: '#1F2937',
+					900: '#111827',
+				},
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))'
@@ -84,11 +121,34 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'fade-in': {
+					'0%': { opacity: '0' },
+					'100%': { opacity: '1' }
+				},
+				'fade-out': {
+					'0%': { opacity: '1' },
+					'100%': { opacity: '0' }
+				},
+				'slide-in': {
+					'0%': { transform: 'translateY(10px)', opacity: '0' },
+					'100%': { transform: 'translateY(0)', opacity: '1' }
+				},
+				'slide-from-right': {
+					'0%': { transform: 'translateX(20px)', opacity: '0' },
+					'100%': { transform: 'translateX(0)', opacity: '1' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-in': 'fade-in 0.5s ease-out',
+				'fade-out': 'fade-out 0.5s ease-out',
+				'slide-in': 'slide-in 0.5s ease-out',
+				'slide-from-right': 'slide-from-right 0.4s ease-out'
+			},
+			fontFamily: {
+				sans: ['Inter', 'sans-serif']
 			}
 		}
 	},
