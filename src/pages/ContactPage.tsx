@@ -12,7 +12,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Loader, MailIcon, PhoneIcon, MapPinIcon, Clock } from "lucide-react";
+import { Loader, MailIcon, PhoneIcon, MapPinIcon, Clock, Instagram } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
 
 const ContactPage = () => {
@@ -77,25 +77,22 @@ const ContactPage = () => {
       icon: <PhoneIcon size={24} />,
       title: "Phone",
       details: [
-        "+1 234 567 8900 (Main)",
-        "+1 234 567 8901 (Support)"
+        "+250788903507 (Main)",
       ],
     },
     {
       icon: <MailIcon size={24} />,
       title: "Email",
       details: [
-        "info@zawico.com",
-        "support@zawico.com"
+        "zappaworldwideinvestmentscompany@gmail.com",
       ],
     },
     {
       icon: <MapPinIcon size={24} />,
       title: "Address",
       details: [
-        "123 Shipping Lane",
-        "Port City, PC 12345",
-        "United States"
+        "KIGALI CITY KN 8 Ave",
+        "Kigali, Rwanda",
       ],
     },
     {
@@ -107,6 +104,22 @@ const ContactPage = () => {
         "Sunday: Closed"
       ],
     },
+  ];
+
+  // Social media contacts
+  const socialContacts = [
+    {
+      icon: <Instagram size={24} />,
+      title: "Instagram",
+      details: ["za.wi.co ltd"],
+      link: "https://instagram.com/za.wi.co"
+    },
+    {
+      icon: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-message-circle"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" /></svg>,
+      title: "WhatsApp",
+      details: ["+971527629909", "+250789837250"],
+      link: "https://wa.me/971527629909"
+    }
   ];
 
   return (
@@ -217,6 +230,31 @@ const ContactPage = () => {
                     </CardContent>
                   </Card>
                 ))}
+
+                {/* Social Media Contacts */}
+                {socialContacts.map((social, index) => (
+                  <Card key={`social-${index}`} className="hover:shadow-md transition-shadow">
+                    <CardHeader className="pb-2">
+                      <div className="flex items-center gap-2">
+                        <div className="text-brand-blue">{social.icon}</div>
+                        <CardTitle className="text-xl">{social.title}</CardTitle>
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      {social.details.map((detail, i) => (
+                        <p key={i} className="text-neutral-700">{detail}</p>
+                      ))}
+                      <a 
+                        href={social.link}
+                        className="text-brand-blue hover:underline mt-2 inline-block"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Connect with us
+                      </a>
+                    </CardContent>
+                  </Card>
+                ))}
               </div>
 
               {/* Map Placeholder */}
@@ -226,7 +264,7 @@ const ContactPage = () => {
                   <p className="text-neutral-600">Map integration would go here</p>
                 </div>
                 <p className="mt-2 text-sm text-neutral-500">
-                  123 Shipping Lane, Port City, PC 12345, United States
+                  KIGALI CITY KN 8 Ave, Kigali, Rwanda
                 </p>
               </div>
             </div>
@@ -245,29 +283,17 @@ const ContactPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
-                city: "New York",
-                country: "United States",
-                address: "123 Shipping Lane, NY 10001",
-                phone: "+1 234 567 8900",
-              },
-              {
-                city: "London",
-                country: "United Kingdom",
-                address: "45 Logistics Street, London EC1A 1BB",
-                phone: "+44 20 1234 5678",
-              },
-              {
-                city: "Singapore",
-                country: "Singapore",
-                address: "78 Marina Bay, Singapore 018956",
-                phone: "+65 6123 4567",
+                city: "Kigali",
+                country: "Rwanda",
+                address: "KIGALI CITY KN 8 Ave",
+                phone: "+250788903507",
               },
               {
                 city: "Dubai",
                 country: "UAE",
-                address: "56 Sheikh Zayed Rd, Dubai",
-                phone: "+971 4 123 4567",
-              },
+                address: "Dubai Office",
+                phone: "+971527629909",
+              }
             ].map((office, index) => (
               <Card key={index} className="hover:shadow-md transition-shadow">
                 <CardHeader className="pb-2">

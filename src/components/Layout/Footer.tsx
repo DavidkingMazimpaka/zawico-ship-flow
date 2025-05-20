@@ -27,8 +27,6 @@ const Footer = () => {
     {
       title: "Resources",
       links: [
-        { label: "Tracking", url: "/tracking" },
-        { label: "Book Shipment", url: "/booking" },
         { label: "FAQs", url: "#" },
         { label: "Terms & Conditions", url: "#" },
       ],
@@ -37,10 +35,10 @@ const Footer = () => {
       title: "Contact Us",
       content: (
         <div className="space-y-2 text-neutral-600">
-          <p>123 Shipping Lane, Port City</p>
-          <p>Email: info@zawico.com</p>
-          <p>Phone: +1 234 567 8900</p>
-          <p>WhatsApp: +1 234 567 8901</p>
+          <p>KIGALI CITY KN 8 Ave, Kigali</p>
+          <p>Email: zappaworldwideinvestmentscompany@gmail.com</p>
+          <p>Phone: +250788903507</p>
+          <p>WhatsApp: +971527629909 / +250789837250</p>
         </div>
       ),
     },
@@ -60,11 +58,9 @@ const Footer = () => {
               Our services are designed to make shipping simple, reliable, and efficient.
             </p>
             <div className="flex space-x-4">
-              {/* Social media icons would go here */}
-              <a href="#" className="hover:text-brand-blue transition-colors">FB</a>
-              <a href="#" className="hover:text-brand-blue transition-colors">TW</a>
-              <a href="#" className="hover:text-brand-blue transition-colors">IG</a>
-              <a href="#" className="hover:text-brand-blue transition-colors">LI</a>
+              {/* Social media icons */}
+              <a href="https://wa.me/971527629909" aria-label="WhatsApp" className="hover:text-brand-blue transition-colors">WA</a>
+              <a href="https://instagram.com/za.wi.co" aria-label="Instagram" className="hover:text-brand-blue transition-colors">IG</a>
             </div>
           </div>
 
