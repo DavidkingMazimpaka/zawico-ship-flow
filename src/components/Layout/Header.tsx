@@ -12,9 +12,7 @@ const Header = () => {
     { label: "Home", path: "/" },
     { label: "About Us", path: "/about" },
     { label: "Services", path: "/services" },
-    { label: "Tracking", path: "/tracking" },
-    { label: "Book Now", path: "/booking", isButton: true },
-    { label: "Contact", path: "/contact" },
+    { label: "Contact", path: "/contact", isButton: true },
   ];
 
   return (

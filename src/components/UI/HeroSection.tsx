@@ -17,12 +17,12 @@ const HeroSection = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button asChild size="lg" className="bg-brand-blue hover:bg-brand-700 text-white font-medium">
-                <Link to="/booking" className="flex items-center gap-2">
-                  Book Shipment <ArrowRight size={16} />
+                <Link to="/services" className="flex items-center gap-2">
+                  Our Services <ArrowRight size={16} />
                 </Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="border-brand-blue text-brand-blue hover:bg-brand-50">
-                <Link to="/tracking">Track Shipment</Link>
+                <Link to="/contact">Contact Us</Link>
               </Button>
             </div>
           </div>
