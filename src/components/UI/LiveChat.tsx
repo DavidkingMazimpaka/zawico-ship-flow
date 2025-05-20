@@ -1,7 +1,6 @@
 
 const LiveChat = () => {
   const whatsappNumbers = [
-    { number: "971527629909", label: "UAE" },
     { number: "250789837250", label: "Rwanda" }
   ];
 

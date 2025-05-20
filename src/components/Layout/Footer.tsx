@@ -38,7 +38,7 @@ const Footer = () => {
           <p>KIGALI CITY KN 8 Ave, Kigali</p>
           <p>Email: zappaworldwideinvestmentscompany@gmail.com</p>
           <p>Phone: +250788903507</p>
-          <p>WhatsApp: +971527629909 / +250789837250</p>
+          <p>WhatsApp: +250789837250</p>
         </div>
       ),
     },
