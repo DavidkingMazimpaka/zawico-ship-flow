@@ -1,5 +1,5 @@
 
-import { WhatsAppIcon } from "lucide-react";
+import { MessageSquare } from "lucide-react";
 
 const LiveChat = () => {
   const whatsappNumbers = [
@@ -18,7 +18,7 @@ const LiveChat = () => {
           className="bg-green-500 hover:bg-green-600 text-white rounded-full p-3 shadow-lg flex items-center justify-center transition-all group"
           aria-label={`WhatsApp ${contact.label}`}
         >
-          <WhatsAppIcon size={24} />
+          <MessageSquare size={24} />
           <span className="max-w-0 overflow-hidden group-hover:max-w-xs group-hover:ml-2 transition-all duration-300 ease-in-out whitespace-nowrap">
             {contact.label}
           </span>
