@@ -1,9 +1,9 @@
 import { useState } from "react";
 import MainLayout from "@/components/Layout/MainLayout";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/UI/button";
+import { Input } from "@/components/UI/input";
+import { Label } from "@/components/UI/label";
+import { Textarea } from "@/components/UI/textarea";
 import {
   Card,
   CardContent,
@@ -17,7 +17,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
+} from "@/components/UI/select";
 import {
   Dialog,
   DialogContent,
@@ -25,9 +25,9 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from "@/components/ui/dialog";
+} from "@/components/UI/dialog";
 import { Loader, CheckCircle } from "lucide-react";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/components/UI/use-toast";
 
 const BookingPage = () => {
   const { toast } = useToast();
@@ -108,7 +108,7 @@ const BookingPage = () => {
     if (!formData.firstName || !formData.lastName || !formData.email || !formData.phone) {
       toast({
         title: "Missing Information",
-        description: "Please fill in all required personal information fields.",
+        description: "Please fill in all reqred personal information fields.",
         variant: "destructive",
       });
       return;
@@ -117,7 +117,7 @@ const BookingPage = () => {
     if (!formData.shipmentType || !formData.shippingMethod || !formData.itemDescription) {
       toast({
         title: "Missing Information",
-        description: "Please fill in all required shipment details.",
+        description: "Please fill in all reqred shipment details.",
         variant: "destructive",
       });
       return;

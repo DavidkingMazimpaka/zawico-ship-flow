@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/UI/button";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,7 +21,11 @@ const Header = () => {
         <div className="flex h-16 md:h-20 items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <span className="text-xl md:text-2xl font-bold text-brand-blue">Za.w.i.co<span className="text-brand-dark">.Ltd</span></span>
+            <img 
+              src="/ZAWICO.png" 
+              alt="ZAWICO Company Logo" 
+              className="h-20 md:h-20 w-auto object-contain" // Reduced from h-12 to h-8/h-10
+            />
           </Link>
 
           {/* Desktop Navigation */}

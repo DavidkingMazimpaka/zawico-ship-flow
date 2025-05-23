@@ -1,5 +1,6 @@
 
 import { Link } from "react-router-dom";
+import { Instagram, Twitter} from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -57,11 +58,28 @@ const Footer = () => {
               Global logistics and shipping solutions that connect businesses and individuals worldwide.
               Our services are designed to make shipping simple, reliable, and efficient.
             </p>
-            <div className="flex space-x-4">
-              {/* Social media icons */}
-              <a href="https://wa.me/971527629909" aria-label="WhatsApp" className="hover:text-brand-blue transition-colors">WA</a>
-              <a href="https://instagram.com/za.wi.co" aria-label="Instagram" className="hover:text-brand-blue transition-colors">IG</a>
-            </div>
+           <div className="flex space-x-4">
+<div className="flex space-x-4">
+  <a 
+    href="https://twitter.com/zawico" 
+    target="_blank" 
+    rel="noopener noreferrer" 
+    className="hover:text-[#1DA1F2] text-neutral-400 transition-colors"
+    aria-label="Twitter"
+  >
+    <Twitter size={24} />
+  </a>
+  <a 
+    href="https://instagram.com/za.wi.co" 
+    target="_blank" 
+    rel="noopener noreferrer" 
+    className="hover:text-[#E4405F] text-neutral-400 transition-colors"
+    aria-label="Instagram"
+  >
+    <Instagram size={24} />
+  </a>
+</div>
+</div>
           </div>
 
           {/* Footer Columns */}

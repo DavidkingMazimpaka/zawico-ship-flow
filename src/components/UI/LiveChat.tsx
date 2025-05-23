@@ -1,7 +1,7 @@
 
 const LiveChat = () => {
   const whatsappNumbers = [
-    { number: "250789837250", label: "Rwanda" }
+    { number: "250789837250" }
   ];
 
   return (
@@ -13,18 +13,15 @@ const LiveChat = () => {
           target="_blank"
           rel="noopener noreferrer"
           className="bg-green-500 hover:bg-green-600 text-white rounded-full p-3 shadow-lg flex items-center justify-center transition-all group"
-          aria-label={`WhatsApp ${contact.label}`}
+          aria-label={`WhatsApp}`}
         >
           <img 
             src="/lovable-uploads/f4c6b092-52ea-4af4-92d2-4b96295d22d3.png" 
             alt="WhatsApp" 
-            width="24" 
-            height="24" 
+            width="35" 
+            height="35" 
             className="min-w-[24px]"
           />
-          <span className="max-w-0 overflow-hidden group-hover:max-w-xs group-hover:ml-2 transition-all duration-300 ease-in-out whitespace-nowrap">
-            {contact.label}
-          </span>
         </a>
       ))}
     </div>

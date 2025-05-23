@@ -1,10 +1,10 @@
 
 import { useState } from "react";
 import MainLayout from "@/components/Layout/MainLayout";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/UI/button";
+import { Input } from "@/components/UI/input";
+import { Label } from "@/components/UI/label";
+import { Textarea } from "@/components/UI/textarea";
 import {
   Card,
   CardContent,
@@ -13,7 +13,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Loader, MailIcon, PhoneIcon, MapPinIcon, Clock, Instagram } from "lucide-react";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/components/UI/use-toast";
 
 const ContactPage = () => {
   const { toast } = useToast();
@@ -44,7 +44,7 @@ const ContactPage = () => {
     if (!formData.name || !formData.email || !formData.message) {
       toast({
         title: "Missing Information",
-        description: "Please fill in all required fields.",
+        description: "Please fill in all reqUIred fields.",
         variant: "destructive",
       });
       return;

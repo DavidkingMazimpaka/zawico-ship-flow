@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Truck, Plane, Box, Ship } from "lucide-react";
 import MainLayout from "@/components/Layout/MainLayout";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/UI/button";
 import { Link } from "react-router-dom";
 import {
   Card,
@@ -18,7 +18,7 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from "@/components/ui/dialog";
+} from "@/components/UI/dialog";
 
 const ServicesPage = () => {
   const [selectedService, setSelectedService] = useState<Service | null>(null);

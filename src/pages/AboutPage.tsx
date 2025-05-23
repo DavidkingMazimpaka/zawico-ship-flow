@@ -1,40 +1,40 @@
 
 import MainLayout from "@/components/Layout/MainLayout";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/UI/button";
 import { Link } from "react-router-dom";
 
 const AboutPage = () => {
   // Company timeline data
   const timeline = [
     {
-      year: 2010,
+      year: 2020,
       title: "Company Founded",
       description:
         "Za.w.i.co.Ltd was established with a vision to simplify global logistics and provide accessible shipping solutions.",
     },
     {
-      year: 2012,
+      year: 2021,
       title: "International Expansion",
       description:
         "Expanded operations to cover international shipping routes across Asia, Europe, and North America.",
     },
     {
-      year: 2015,
+      year: 2022,
       title: "Digital Transformation",
       description:
         "Launched our online tracking system and digital booking platform to enhance customer experience.",
     },
     {
-      year: 2018,
+      year: 2023,
       title: "Sustainable Logistics Initiative",
       description:
         "Implemented eco-friendly shipping options and carbon offset programs for environmentally conscious clients.",
     },
     {
-      year: 2023,
+      year: 2024,
       title: "Global Network Milestone",
       description:
-        "Reached presence in over 50 countries with a network of trusted partners and local expertise.",
+        "Reached presence in over 10 countries with a network of trusted partners and local expertise.",
     },
   ];
 
