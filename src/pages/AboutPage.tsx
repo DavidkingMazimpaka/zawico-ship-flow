@@ -90,8 +90,12 @@ const AboutPage = () => {
                 <Link to="/contact">Contact Us</Link>
               </Button>
             </div>
-            <div className="bg-neutral-200 rounded-lg aspect-square md:aspect-[4/3] flex items-center justify-center">
-              <span className="text-lg text-neutral-500">Company image placeholder</span>
+            <div className="bg-neutral-50 rounded-lg overflow-hidden aspect-square md:aspect-[4/3]">
+              <img
+                src="/05.jpg"
+                alt="Za.w.i.co.Ltd Company Overview"
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
         </div>
