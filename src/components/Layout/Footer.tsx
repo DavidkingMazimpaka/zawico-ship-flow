@@ -1,11 +1,9 @@
-
 import { Link } from "react-router-dom";
-import { Instagram, Twitter} from "lucide-react";
+import { Instagram, Mail } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
-  // Footer columns data
   const footerColumns = [
     {
       title: "Company",
@@ -37,7 +35,7 @@ const Footer = () => {
       content: (
         <div className="space-y-2 text-neutral-600">
           <p>KIGALI CITY KN 8 Ave, Kigali</p>
-          <p>Email: zappaworldwideinvestmentscompany@gmail.com</p>
+          <p>Email: zappaworldwideinvestment@gmail.com</p>
           <p>Phone: +250788903507</p>
           <p>WhatsApp: +250789837250</p>
         </div>
@@ -52,34 +50,34 @@ const Footer = () => {
           {/* Company Information */}
           <div>
             <Link to="/" className="flex items-center space-x-2 mb-4">
-              <span className="text-2xl font-bold text-white">Za.w.i.co<span className="text-brand-100">.Ltd</span></span>
+              <span className="text-2xl font-bold text-white">
+                Za.w.i.co<span className="text-brand-100">.Ltd</span>
+              </span>
             </Link>
             <p className="text-neutral-400 mb-4">
               Global logistics and shipping solutions that connect businesses and individuals worldwide.
               Our services are designed to make shipping simple, reliable, and efficient.
             </p>
-           <div className="flex space-x-4">
-<div className="flex space-x-4">
-  <a 
-    href="https://twitter.com/zawico" 
-    target="_blank" 
-    rel="noopener noreferrer" 
-    className="hover:text-[#1DA1F2] text-neutral-400 transition-colors"
-    aria-label="Twitter"
-  >
-    <Twitter size={24} />
-  </a>
-  <a 
-    href="https://instagram.com/za.wi.co" 
-    target="_blank" 
-    rel="noopener noreferrer" 
-    className="hover:text-[#E4405F] text-neutral-400 transition-colors"
-    aria-label="Instagram"
-  >
-    <Instagram size={24} />
-  </a>
-</div>
-</div>
+            <div className="flex space-x-4">
+              <a 
+                href="mailto:zappaworldwideinvestment@gmail.com" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="hover:text-[#1DA1F2] text-neutral-400 transition-colors"
+                aria-label="Email"
+              >
+                <Mail size={24} />
+              </a>
+              <a 
+                href="https://instagram.com/za.wi.co" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="hover:text-[#E4405F] text-neutral-400 transition-colors"
+                aria-label="Instagram"
+              >
+                <Instagram size={24} />
+              </a>
+            </div>
           </div>
 
           {/* Footer Columns */}

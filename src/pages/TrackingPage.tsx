@@ -1,15 +1,14 @@
-
 import { useState } from "react";
 import MainLayout from "@/components/Layout/MainLayout";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Button } from "@/components/UI/button";
+import { Input } from "@/components/UI/input";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
+} from "@/components/UI/card";
 import { Loader } from "lucide-react";
 
 const TrackingPage = () => {
@@ -160,14 +159,13 @@ const TrackingPage = () => {
   return (
     <MainLayout>
       {/* Hero Section */}
-      <section className="bg-brand-50 py-16">
-        <div className="container mx-auto">
+      <section className="bg-brand-50 py-12 md:py-20">
+        <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Track Your Shipment</h1>
-            <p className="text-lg text-neutral-700 mb-8">
+            <h1 className="text-3xl md:text-5xl font-bold mb-4 md:mb-6 text-brand-blue">Track Your Shipment</h1>
+            <p className="text-base md:text-lg text-neutral-700 mb-6 md:mb-8">
               Enter your tracking number to get real-time updates on your shipment's status and location.
             </p>
-            
             <form onSubmit={handleTracking} className="max-w-xl mx-auto">
               <div className="flex flex-col sm:flex-row gap-4">
                 <Input
@@ -179,7 +177,7 @@ const TrackingPage = () => {
                 />
                 <Button
                   type="submit"
-                  className="bg-brand-blue hover:bg-brand-700 h-12 px-8"
+                  className="bg-brand-blue hover:bg-brand-700 h-12 px-8 text-base md:text-lg"
                   disabled={isLoading}
                 >
                   {isLoading ? (
