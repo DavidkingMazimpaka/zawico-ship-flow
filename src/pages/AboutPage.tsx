@@ -70,14 +70,18 @@ const AboutPage = () => {
                 Contact Us
               </Button>
             </div>
-            <div className="relative bg-neutral-50 rounded-lg overflow-hidden aspect-square md:aspect-[4/3] flex items-center justify-center">
+            <div className="relative bg-neutral-50 rounded-lg overflow-hidden aspect-square md:aspect-[4/3] flex items-center justify-center group">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20 mix-blend-overlay transition-opacity duration-500 group-hover:opacity-0"></div>
               <img
-                src="/05.jpg"
+                src="/04.jpg"
                 alt="Za.w.i.co.Ltd Company Overview"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover transform transition-all duration-700 group-hover:scale-110"
               />
-              <div className="absolute bottom-2 left-2 bg-white px-3 py-1 rounded-full text-sm shadow text-gray-600">
-                Company HQ
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full text-sm shadow-lg transform -translate-y-2 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+                <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-semibold">
+                  Za.w.i.co.Ltd
+                </span>
               </div>
             </div>
           </div>

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const images = [
   '/01.jpg',
@@ -114,13 +115,16 @@ const HeroSection = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <button className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center gap-2">
-                Our Services <ArrowRight size={20} />
-              </button>
-              
-              <button className="bg-white/10 backdrop-blur-sm border border-white/30 text-white hover:bg-white/20 font-semibold px-8 py-4 rounded-xl transition-all duration-300 transform hover:scale-105">
-                Contact Us
-              </button>
+              <Link to="/services">
+                <button className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center gap-2">
+                  Our Services <ArrowRight size={20} />
+                </button>
+              </Link>
+              <Link to="/contact">
+                <button className="bg-white/10 backdrop-blur-sm border border-white/30 text-white hover:bg-white/20 font-semibold px-8 py-4 rounded-xl transition-all duration-300 transform hover:scale-105">
+                  Contact Us
+                </button>
+              </Link>
             </div>
             
             {/* Stats */}
