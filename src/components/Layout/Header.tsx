@@ -13,16 +13,17 @@ const Header = () => {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full backdrop-blur-sm shadow-lg border-b-2 border-gray-200/50" style={{ background: 'linear-gradient(to right, #f8fafc, #f1f5f9, #e2e8f0)' }}>
+    <header className="sticky top-0 z-50 w-full backdrop-blur-sm shadow-lg border-b-2 border-yellow-200/40" style={{ background: 'linear-gradient(to right, #fffbeb, #fef3c7, #fde68a)' }}>
       <div className="container mx-auto px-4">
         <div className="flex h-16 md:h-20 items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="p-0 hover:bg-transparent">
+          <Link to="/" className="p-0 hover:bg-transparent flex items-center">
             <div className="h-20 md:h-28 p-1 flex items-center">
               <img 
                 src="/ZAPPA_LOGO-1.png"
                 alt="ZAPPA LOGO"
-                className="h-16 md:h-24 w-auto object-contain"
+                className="h-16 md:h-24 w-auto object-contain drop-shadow-lg"
+                style={{ maxHeight: "5rem", minHeight: "4rem" }}
               />
             </div>
           </Link>
@@ -38,6 +39,7 @@ const Header = () => {
                   <Button 
                     variant="default"
                     size="default"
+                    // Removed hover:text-white and kept only background color change on hover
                     className="bg-gradient-to-r from-orange-400 to-orange-500 text-white hover:from-orange-500 hover:to-orange-600 px-6 py-2 rounded-full font-medium transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
                   >
                     {item.label}
@@ -51,6 +53,7 @@ const Header = () => {
                   <Button
                     variant="ghost"
                     size="default"
+                    // Removed any hover:text-white, only hover:text-violet-600 remains
                     className={`text-base font-medium transition-all duration-300 hover:text-violet-600 relative ${
                       item.path === '/services' ? "text-gray-800" : "text-gray-700"
                     } hover:transform hover:-translate-y-0.5`}
@@ -69,7 +72,7 @@ const Header = () => {
           <Button
             variant="ghost"
             size="icon"
-            className="md:hidden p-2 text-gray-700 bg-gray-100/50 rounded-lg hover:bg-gray-200/50 transition-colors"
+            className="md:hidden p-2 text-gray-800 bg-yellow-100/60 rounded-lg transition-colors"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -88,7 +91,7 @@ const Header = () => {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="md:hidden backdrop-blur-sm border-t border-gray-200/30" style={{ backgroundColor: 'rgba(248, 250, 252, 0.95)' }}>
+        <div className="md:hidden backdrop-blur-sm border-t border-yellow-200/40" style={{ backgroundColor: 'rgba(255, 251, 235, 0.95)' }}>
           <nav className="container mx-auto py-4 flex flex-col gap-4">
             {navItems.map((item) => 
               item.isButton ? (
@@ -100,6 +103,7 @@ const Header = () => {
                   <Button 
                     variant="default"
                     size="default"
+                    // Removed hover:text-white and kept only background color change on hover
                     className="w-full bg-gradient-to-r from-orange-400 to-orange-500 text-white hover:from-orange-500 hover:to-orange-600 py-3 rounded-lg font-medium transition-colors shadow-md"
                   >
                     {item.label}
