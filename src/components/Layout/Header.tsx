@@ -13,16 +13,16 @@ const Header = () => {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full backdrop-blur-sm shadow-lg border-b-2 border-orange-400/30" style={{ background: 'linear-gradient(to right, #090144, #1a0f5c, #2d1b74)' }}>
+    <header className="sticky top-0 z-50 w-full backdrop-blur-sm shadow-lg border-b-2 border-gray-200/50" style={{ background: 'linear-gradient(to right, #f8fafc, #f1f5f9, #e2e8f0)' }}>
       <div className="container mx-auto px-4">
         <div className="flex h-16 md:h-20 items-center justify-between">
           {/* Logo */}
           <Link to="/" className="p-0 hover:bg-transparent">
-            <div className="h-12 md:h-14 bg-white rounded-lg p-1 shadow-md group-hover:shadow-lg transition-all duration-300 flex items-center">
+            <div className="h-20 md:h-28 p-1 flex items-center">
               <img 
-                src="/ZAWICO.png"
-                alt="ZAWICO Logo"
-                className="h-8 md:h-10 w-auto object-contain"
+                src="/ZAPPA_LOGO-1.png"
+                alt="ZAPPA LOGO"
+                className="h-16 md:h-24 w-auto object-contain"
               />
             </div>
           </Link>
@@ -51,13 +51,13 @@ const Header = () => {
                   <Button
                     variant="ghost"
                     size="default"
-                    className={`text-base font-medium transition-all duration-300 hover:text-[#090144] relative ${
-                      item.path === '/services' ? "text-white" : "text-white/80"
+                    className={`text-base font-medium transition-all duration-300 hover:text-violet-600 relative ${
+                      item.path === '/services' ? "text-gray-800" : "text-gray-700"
                     } hover:transform hover:-translate-y-0.5`}
                   >
                     {item.label}
                     {item.path === '/services' && (
-                      <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-white rounded-full"></div>
+                      <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-violet-500 rounded-full"></div>
                     )}
                   </Button>
                 </Link>
@@ -69,7 +69,7 @@ const Header = () => {
           <Button
             variant="ghost"
             size="icon"
-            className="md:hidden p-2 text-white bg-white/10 rounded-lg hover:bg-white/20 transition-colors"
+            className="md:hidden p-2 text-gray-700 bg-gray-100/50 rounded-lg hover:bg-gray-200/50 transition-colors"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -88,7 +88,7 @@ const Header = () => {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="md:hidden backdrop-blur-sm border-t border-white/10" style={{ backgroundColor: 'rgba(9, 1, 68, 0.95)' }}>
+        <div className="md:hidden backdrop-blur-sm border-t border-gray-200/30" style={{ backgroundColor: 'rgba(248, 250, 252, 0.95)' }}>
           <nav className="container mx-auto py-4 flex flex-col gap-4">
             {navItems.map((item) => 
               item.isButton ? (
@@ -100,8 +100,7 @@ const Header = () => {
                   <Button 
                     variant="default"
                     size="default"
-                    className="w-full bg-white hover:bg-blue-50 py-3 rounded-lg font-medium transition-colors shadow-md" 
-                    style={{ color: '#090144' }}
+                    className="w-full bg-gradient-to-r from-orange-400 to-orange-500 text-white hover:from-orange-500 hover:to-orange-600 py-3 rounded-lg font-medium transition-colors shadow-md"
                   >
                     {item.label}
                   </Button>
@@ -115,8 +114,8 @@ const Header = () => {
                   <Button
                     variant="ghost"
                     size="default"
-                    className={`py-2 text-left text-base font-medium transition-colors hover:text-[#090144] ${
-                      item.path === '/services' ? "text-white" : "text-white/80"
+                    className={`py-2 text-left text-base font-medium transition-colors hover:text-violet-600 ${
+                      item.path === '/services' ? "text-gray-800" : "text-gray-700"
                     }`}
                   >
                     {item.label}
