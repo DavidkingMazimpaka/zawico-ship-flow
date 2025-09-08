@@ -1,10 +1,164 @@
 import { useState } from "react";
 import { Truck, Plane, Box, Ship } from "lucide-react";
+import { Button } from "@/components/UI/button";
+import { Input } from "@/components/UI/input";
+import { Label } from "@/components/UI/label";
+import { Textarea } from "@/components/UI/textarea";
 import Header from "@/components/Layout/Header";
 import Footer from "@/components/Layout/Footer";
 
 const ServicesPage = () => {
   const [selectedService, setSelectedService] = useState(null);
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
+  const [isQuoteOpen, setIsQuoteOpen] = useState(false);
+  const [bookingServiceName, setBookingServiceName] = useState<string>("Standard Service");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isQuoteSubmitting, setIsQuoteSubmitting] = useState(false);
+  const [bookingData, setBookingData] = useState({
+    fullName: "",
+    email: "",
+    phone: "",
+    pickupLocation: "",
+    destination: "",
+    shipmentDetails: "",
+  });
+  const [quoteData, setQuoteData] = useState({
+    fullName: "",
+    email: "",
+    phone: "",
+    company: "",
+    pickupLocation: "",
+    destination: "",
+    shipmentType: "",
+    weight: "",
+    dimensions: "",
+    value: "",
+    urgency: "",
+    specialRequirements: "",
+  });
+
+  const openBooking = (serviceName?: string) => {
+    if (serviceName) {
+      setBookingServiceName(serviceName);
+    } else {
+      setBookingServiceName("Standard Service");
+    }
+    setIsBookingOpen(true);
+  };
+
+  const closeBooking = () => {
+    setIsBookingOpen(false);
+  };
+
+  const openQuote = () => {
+    setIsQuoteOpen(true);
+  };
+
+  const closeQuote = () => {
+    setIsQuoteOpen(false);
+  };
+
+  const handleBookingChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setBookingData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleQuoteChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setQuoteData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleBookingSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!bookingData.fullName || !bookingData.email || !bookingData.pickupLocation || !bookingData.destination) {
+      alert("Please fill in Full Name, Email, Pickup Location, and Destination.");
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    const subject = encodeURIComponent(`Booking Request: ${bookingServiceName}`);
+    const bodyLines = [
+      `Service: ${bookingServiceName}`,
+      `Full Name: ${bookingData.fullName}`,
+      `Email: ${bookingData.email}`,
+      `Phone: ${bookingData.phone}`,
+      `Pickup Location: ${bookingData.pickupLocation}`,
+      `Destination: ${bookingData.destination}`,
+      `Shipment Details: ${bookingData.shipmentDetails}`,
+    ];
+    const body = encodeURIComponent(bodyLines.join("\n"));
+    const mailto = `mailto:zappaworldwideinvestment@gmail.com?subject=${subject}&body=${body}`;
+
+    // Open user's default mail client
+    window.location.href = mailto;
+
+    // Simulate completion and close
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setIsBookingOpen(false);
+      setBookingData({
+        fullName: "",
+        email: "",
+        phone: "",
+        pickupLocation: "",
+        destination: "",
+        shipmentDetails: "",
+      });
+    }, 300);
+  };
+
+  const handleQuoteSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!quoteData.fullName || !quoteData.email || !quoteData.pickupLocation || !quoteData.destination) {
+      alert("Please fill in Full Name, Email, Pickup Location, and Destination.");
+      return;
+    }
+
+    setIsQuoteSubmitting(true);
+
+    const subject = encodeURIComponent("Custom Quote Request");
+    const bodyLines = [
+      `Quote Request Details:`,
+      `Full Name: ${quoteData.fullName}`,
+      `Email: ${quoteData.email}`,
+      `Phone: ${quoteData.phone}`,
+      `Company: ${quoteData.company}`,
+      `Pickup Location: ${quoteData.pickupLocation}`,
+      `Destination: ${quoteData.destination}`,
+      `Shipment Type: ${quoteData.shipmentType}`,
+      `Weight: ${quoteData.weight}`,
+      `Dimensions: ${quoteData.dimensions}`,
+      `Value: ${quoteData.value}`,
+      `Urgency: ${quoteData.urgency}`,
+      `Special Requirements: ${quoteData.specialRequirements}`,
+    ];
+    const body = encodeURIComponent(bodyLines.join("\n"));
+    const mailto = `mailto:zappaworldwideinvestment@gmail.com?subject=${subject}&body=${body}`;
+
+    // Open user's default mail client
+    window.location.href = mailto;
+
+    // Simulate completion and close
+    setTimeout(() => {
+      setIsQuoteSubmitting(false);
+      setIsQuoteOpen(false);
+      setQuoteData({
+        fullName: "",
+        email: "",
+        phone: "",
+        company: "",
+        pickupLocation: "",
+        destination: "",
+        shipmentType: "",
+        weight: "",
+        dimensions: "",
+        value: "",
+        urgency: "",
+        specialRequirements: "",
+      });
+    }, 300);
+  };
 
   const services = [
     {
@@ -232,7 +386,7 @@ Key features:
                 <div className="text-gray-700 whitespace-pre-line">{selectedService.fullDescription}</div>
                 
                 <div className="mt-6">
-                  <button className="bg-blue-600 hover:bg-blue-700 text-white w-full py-2 px-4 rounded-md transition-colors duration-200">
+                  <button className="bg-blue-600 hover:bg-blue-700 text-white w-full py-2 px-4 rounded-md transition-colors duration-200" onClick={() => openBooking(selectedService.title)}>
                     Book This Service
                   </button>
                 </div>
@@ -251,10 +405,10 @@ Key features:
               Our team of experts can create a tailored logistics plan based on your specific requirements.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-md transition-colors duration-200 w-full sm:w-auto">
+              <button className="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-md transition-colors duration-200 w-full sm:w-auto" onClick={openQuote}>
                 Get a Custom Quote
               </button>
-              <button className="border-2 border-white text-white hover:bg-gray-800 py-3 px-6 rounded-md transition-colors duration-200 w-full sm:w-auto">
+              <button className="border-2 border-white text-white hover:bg-gray-800 py-3 px-6 rounded-md transition-colors duration-200 w-full sm:w-auto" onClick={() => openBooking("Standard Service")}> 
                 Book Standard Service
               </button>
             </div>
@@ -263,6 +417,146 @@ Key features:
       </section>
 
       <Footer />
+      {/* Booking Modal */}
+      {isBookingOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+          <div className="bg-white rounded-lg w-full max-w-xl max-h-[90vh] overflow-y-auto">
+            <div className="p-6">
+              <div className="flex items-center mb-4">
+                <h3 className="text-xl font-semibold">Book {bookingServiceName}</h3>
+                <button className="ml-auto text-gray-400 hover:text-gray-600" onClick={closeBooking}>✕</button>
+              </div>
+              <form onSubmit={handleBookingSubmit} className="space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <Label htmlFor="fullName">Full Name</Label>
+                    <Input id="fullName" name="fullName" value={bookingData.fullName} onChange={handleBookingChange} placeholder="John Doe" />
+                  </div>
+                  <div>
+                    <Label htmlFor="email">Email</Label>
+                    <Input id="email" type="email" name="email" value={bookingData.email} onChange={handleBookingChange} placeholder="john@example.com" />
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <Label htmlFor="phone">Phone</Label>
+                    <Input id="phone" name="phone" value={bookingData.phone} onChange={handleBookingChange} placeholder="+250..." />
+                  </div>
+                  <div>
+                    <Label htmlFor="pickupLocation">Pickup Location</Label>
+                    <Input id="pickupLocation" name="pickupLocation" value={bookingData.pickupLocation} onChange={handleBookingChange} placeholder="City, Country" />
+                  </div>
+                </div>
+                <div>
+                  <Label htmlFor="destination">Destination</Label>
+                  <Input id="destination" name="destination" value={bookingData.destination} onChange={handleBookingChange} placeholder="City, Country" />
+                </div>
+                <div>
+                  <Label htmlFor="shipmentDetails">Shipment Details</Label>
+                  <Textarea id="shipmentDetails" name="shipmentDetails" value={bookingData.shipmentDetails} onChange={handleBookingChange} placeholder="Describe items, weight/volume, preferred dates, notes..." rows={4} />
+                </div>
+                <div className="pt-2">
+                  <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700" disabled={isSubmitting}>
+                    {isSubmitting ? "Preparing Email..." : "Submit Booking via Email"}
+                  </Button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Quote Modal */}
+      {isQuoteOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+          <div className="bg-white rounded-lg w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+            <div className="p-6">
+              <div className="flex items-center mb-4">
+                <h3 className="text-xl font-semibold">Get a Custom Quote</h3>
+                <button className="ml-auto text-gray-400 hover:text-gray-600" onClick={closeQuote}>✕</button>
+              </div>
+              <form onSubmit={handleQuoteSubmit} className="space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <Label htmlFor="quoteFullName">Full Name *</Label>
+                    <Input id="quoteFullName" name="fullName" value={quoteData.fullName} onChange={handleQuoteChange} placeholder="John Doe" required />
+                  </div>
+                  <div>
+                    <Label htmlFor="quoteEmail">Email *</Label>
+                    <Input id="quoteEmail" type="email" name="email" value={quoteData.email} onChange={handleQuoteChange} placeholder="john@example.com" required />
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <Label htmlFor="quotePhone">Phone</Label>
+                    <Input id="quotePhone" name="phone" value={quoteData.phone} onChange={handleQuoteChange} placeholder="+250..." />
+                  </div>
+                  <div>
+                    <Label htmlFor="quoteCompany">Company</Label>
+                    <Input id="quoteCompany" name="company" value={quoteData.company} onChange={handleQuoteChange} placeholder="Company Name" />
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <Label htmlFor="quotePickup">Pickup Location *</Label>
+                    <Input id="quotePickup" name="pickupLocation" value={quoteData.pickupLocation} onChange={handleQuoteChange} placeholder="City, Country" required />
+                  </div>
+                  <div>
+                    <Label htmlFor="quoteDestination">Destination *</Label>
+                    <Input id="quoteDestination" name="destination" value={quoteData.destination} onChange={handleQuoteChange} placeholder="City, Country" required />
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <Label htmlFor="quoteShipmentType">Shipment Type</Label>
+                    <select id="quoteShipmentType" name="shipmentType" value={quoteData.shipmentType} onChange={handleQuoteChange} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                      <option value="">Select Type</option>
+                      <option value="Air Freight">Air Freight</option>
+                      <option value="Sea Freight">Sea Freight</option>
+                      <option value="Land Transport">Land Transport</option>
+                      <option value="Express">Express</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </div>
+                  <div>
+                    <Label htmlFor="quoteUrgency">Urgency</Label>
+                    <select id="quoteUrgency" name="urgency" value={quoteData.urgency} onChange={handleQuoteChange} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                      <option value="">Select Urgency</option>
+                      <option value="Standard">Standard (5-10 days)</option>
+                      <option value="Express">Express (2-5 days)</option>
+                      <option value="Urgent">Urgent (1-2 days)</option>
+                      <option value="Same Day">Same Day</option>
+                    </select>
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <Label htmlFor="quoteWeight">Weight (kg)</Label>
+                    <Input id="quoteWeight" name="weight" value={quoteData.weight} onChange={handleQuoteChange} placeholder="e.g., 25" />
+                  </div>
+                  <div>
+                    <Label htmlFor="quoteValue">Value (USD)</Label>
+                    <Input id="quoteValue" name="value" value={quoteData.value} onChange={handleQuoteChange} placeholder="e.g., 1000" />
+                  </div>
+                </div>
+                <div>
+                  <Label htmlFor="quoteDimensions">Dimensions (L x W x H cm)</Label>
+                  <Input id="quoteDimensions" name="dimensions" value={quoteData.dimensions} onChange={handleQuoteChange} placeholder="e.g., 50 x 30 x 20" />
+                </div>
+                <div>
+                  <Label htmlFor="quoteSpecialRequirements">Special Requirements</Label>
+                  <Textarea id="quoteSpecialRequirements" name="specialRequirements" value={quoteData.specialRequirements} onChange={handleQuoteChange} placeholder="Any special handling, insurance, documentation, or other requirements..." rows={3} />
+                </div>
+                <div className="pt-2">
+                  <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700" disabled={isQuoteSubmitting}>
+                    {isQuoteSubmitting ? "Preparing Quote Request..." : "Request Custom Quote"}
+                  </Button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

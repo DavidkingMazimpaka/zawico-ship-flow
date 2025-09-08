@@ -1,7 +1,7 @@
 
 const LiveChat = () => {
   const whatsappNumbers = [
-    { number: "250789837250" }
+    { number: "+250793903992" }
   ];
 
   return (
